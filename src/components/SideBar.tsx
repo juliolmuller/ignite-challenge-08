@@ -1,4 +1,7 @@
+import { memo } from "react";
 import { Button } from "./Button";
+
+const MemorizedButton = memo(Button);
 
 interface SideBarProps {
   genres: Array<{
@@ -21,7 +24,7 @@ export function SideBar({
 
       <div className="buttons-container">
         {genres.map(genre => (
-          <Button
+          <MemorizedButton
             key={String(genre.id)}
             title={genre.title}
             iconName={genre.name}

@@ -1,4 +1,7 @@
+import { memo } from "react";
 import { MovieCard } from "./MovieCard";
+
+const MemorizedMovieCard = memo(MovieCard);
 
 interface ContentProps {
   selectedGenre: {
@@ -29,7 +32,7 @@ export function Content({ selectedGenre, movies }: ContentProps) {
       <main>
         <div className="movies-list">
           {movies.map(movie => (
-            <MovieCard key={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
+            <MemorizedMovieCard key={movie.imdbID} title={movie.Title} poster={movie.Poster} runtime={movie.Runtime} rating={movie.Ratings[0].Value} />
           ))}
         </div>
       </main>
